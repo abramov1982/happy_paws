@@ -1,0 +1,6 @@
+{
+  "name": "Happy Paws",
+  "description": "Animal shelter 'Happy Paws'",
+  "image": "heroku/python",
+  "keywords": ["python", "django", "postgresql" ]
+}

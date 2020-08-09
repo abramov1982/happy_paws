@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 import os
 import sys
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,7 +23,9 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'vhk(ae7@u06(hfq=n+09fs$3hupcyscwv1oa5+zwhr3f$=65h!'
+
+# SECRET_KEY = 'vhk(ae7@u06(hfq=n+09fs$3hupcyscwv1oa5+zwhr3f$=65h!'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -79,6 +82,9 @@ WSGI_APPLICATION = 'happy_paws.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
+
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -89,7 +95,7 @@ DATABASES = {
         'PORT': '',
     }
 }
-
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
