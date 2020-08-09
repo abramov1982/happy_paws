@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="{% static 'css/index.css' %}">
+    {% block css %}
+    {% endblock %}
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    {% load bootstrap3 %}
+    {% bootstrap_javascript %}
+    {% bootstrap_css %}
+    <title>Счастливые лапки</title>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="nav navbar-inverse login-panel">
+        <div>
+            <ul class="nav navbar-nav">
+                <li><a href="#">Войти</a></li>
+                <li>|</li>
+                <li><a href="#">Зарегистрироватья</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="nav navbar-inverse">
+        <div>
+            <ul class="nav navbar-nav">
+                <li><img src="/media/logo.jpg" height="40" width="40"></li>
+                <li><a href="#">О нас</a></li>
+                <li>|</li>
+                <li><a href="/">Наши питомцы</a></li>
+                <li>|</li>
+                <li><a href="#">Наши истории</a></li>
+                <li>|</li>
+                <li><a href="#">Контакты</a></li>
+                <li><img src="/media/logo.jpg" height="40" width="40"></li>
+            </ul>
+        </div>
+    </div>
+    {% block admin %}
+    {% endblock %}
+    <hr>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <footer class="footer navbar-fixed-bottom navbar-inverse">
+        <p>AbramovIO 2020(c)</p>
+    </footer>
+
+</body>
+    <script src="{% bootstrap_jquery_url %}"></script>
+	<script src="{% static 'js/jquery.js' %}"></script>
+</html>

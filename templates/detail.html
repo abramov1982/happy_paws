@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+    {% block content %}
+        {% if curator %}
+            <div>
+                <div>{{ curator }}</div>
+                <div>{{ curator.email }}</div>
+                <div>{{ curator.phone }}</div>
+                {% if curator.email %}
+                    <div>{{ curator.email }}</div>
+                {% endif %}
+            </div>
+        {% endif %}
+        {% if animal %}
+            <div class="detail">
+                <div class="breed-name">
+                    <div><p>{{ animal}}</p></div>
+                    <div><p>Возраст - {{ animal.age }}</p></div>
+                </div>
+                {% if animal.description %}
+                    <div>{{ animal.description }}</div>
+                {% endif %}
+                <div><p>Куратор - <a href="{% url 'curator' animal.curator_id %}">{{ animal.curator }}</a></p></div>
+                <div><img src="{{ animal.get_image.url }}"></div>
+            </div>
+        {% endif %}
+    {% endblock %}

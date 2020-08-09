@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for animal in object_list %}
+        <div class="animal">
+            <div class="title">
+                <p>{{ animal.title }} - <a href="{{ animal.get_absolute_url }}">{{ animal.nickname }}</a></p>
+            </div>
+            <div class="breed-name">
+                <p>Порода - {{ animal.breed.lower }}</p>
+                <p>Возраст - {{ animal.age }}</p>
+            </div>
+            <div class="image">
+                <img src="{{ animal.get_image.url }}">
+            </div>
+            <div class="curator">
+                <p>Куратор - <a href="curator/{{ animal.curator_id }}">{{ animal.curator }}</a></p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
